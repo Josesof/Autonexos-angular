@@ -58,6 +58,8 @@ export class CargoComponent implements OnInit {
         );
     } 
 
+    
+
     delete(cargo: Cargo):void {
 
 

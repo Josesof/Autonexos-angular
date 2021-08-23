@@ -5,13 +5,14 @@ export class Producto  {
     nombreProducto: string;
     cantidad: number;
     fechaIngreso: string;
-    usuario: Usuario;
+    idUsuario : number;
 
     constructor() {
+        this.id = 0;
         this.nombreProducto = "";
         this.cantidad = 0;
         this.fechaIngreso = "";
-        this.id = 0;
-        this.usuario = new Usuario();
+        this.idUsuario = 0;
+       
     }
 }

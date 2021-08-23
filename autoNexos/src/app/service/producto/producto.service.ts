@@ -33,13 +33,14 @@ export class ProductoService {
       
   }
 
-  /*Servicio que nos permite crear cargos en la api*/
+  /*Servicio que nos permite crear PRODUCTOS en la api*/
   createProducto(producto: Producto):Observable<Producto>{
     console.log("Esto es lo que esta llegando" + producto);
     
     return this.http.post<Producto>(`${this.urlApi}/guardarProducto`,producto,{headers: this.httpHeaders})
 
 }
+
   
      /*Servicio que nos permite traer los cargos por id*/
     getProductoId(id:number):Observable<Producto[]>{

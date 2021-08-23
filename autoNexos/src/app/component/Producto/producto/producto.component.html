@@ -64,6 +64,8 @@
             <th>Edad</th>
             <th>Fecha Ingreso</th>
             <th>Usuario</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
@@ -72,6 +74,13 @@
             <td>{{ producto.nombreProducto }}</td>
             <td>{{ producto.cantidad }}</td>
             <td>{{ producto.fechaIngreso }}</td>
+            <td>{{ producto.id_usuario }}</td>
+            <td>
+              <button type="button " name="button" [routerLink]="['/editproductos',producto.id]" class="btn btn-primary">editar</button>
+            </td>
+            <td>
+              <button type="button " name="button"  (click)="delete(producto)" class="btn btn-danger">eliminar</button>
+            </td>
             
           </tr>
         </tbody>

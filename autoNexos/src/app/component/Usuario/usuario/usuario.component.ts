@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import {UsuarioService} from '../../../service/usuario/usuario.service';
 import {Usuario} from 'src/app/component/Models/usuario';
 import { ActivatedRoute, Router } from '@angular/router';
+import {CargoService} from '../../../service/cargo/cargo.service';
+import {Cargo} from 'src/app/component/Models/cargo';
 
 @Component({
   selector: 'app-usuario',
@@ -15,15 +17,20 @@ export class UsuarioComponent implements OnInit {
   public usuarios: any = [];
   public titulo : string = "Usuario";
 
+  public cargo: Cargo = new Cargo;
+  public cargos: any = [];
 
 
-  constructor(private usuarioService: UsuarioService
+
+
+  constructor(private usuarioService: UsuarioService,private cargoService: CargoService
     , private activatedRoute: ActivatedRoute, private router: Router ) {   }
   
   
 
   ngOnInit(): void {
     this.getUsuarios();   
+    this.getCargos(); 
    
   }
 
@@ -49,6 +56,18 @@ export class UsuarioComponent implements OnInit {
         }
       })
     }
+
+       /* Obtener la lista de todos los cargos creados */
+       getCargos() {
+        this.cargoService.getCargos()
+          .subscribe(
+            data => {
+              this.cargos = data;
+              console.log(this.cargos);
+            },
+            err => console.log(err)
+          );
+      }
 
 
 

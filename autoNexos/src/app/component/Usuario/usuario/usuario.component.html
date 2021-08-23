@@ -34,7 +34,16 @@
             name="fechaIngresoCompania"
           />
         </div>
+
+        <label for="usuario" class="col-form-label col-sm-2">Cargo</label>
+        <div class="col-sm-4">
+        <select class="form-control" name="id" id="select-rol" >
+          <option value="">-- Seleccionar</option>
+          <option *ngFor="let datos of cargos" [value]=datos.id>{{datos.nombreCargo}}</option>
+        </select>
       </div>
+      </div>
+   
       <br />
       <div class="form-group row">
         <div class="col-sm-6">
