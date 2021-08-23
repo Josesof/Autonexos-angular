@@ -1,0 +1,81 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">{{ titulo }}</div>
+    <div class="card-body">
+      <form (ngSubmit)="saveProducto()">
+        <div class="form-group row">
+          <label for="nombreProducto" class="col-form-label col-sm-2">Nombre</label>
+          <div class="col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="producto.nombreProducto"
+              name="nombreProducto"
+            />
+          </div>
+  
+          <label for="cantidad" class="col-form-label col-sm-2">Cantidad</label>
+          <div class="col-sm-4">
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="producto.cantidad"
+              name="cantidad"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="form-group row">
+          <label for="fechaIngreso" class="col-form-label col-sm-2">Fecha Ingreso</label>
+          <div class="col-sm-4">
+            <input
+              type="date"
+              class="form-control"
+              [(ngModel)]="producto.fechaIngreso"
+              name="fechaIngreso"
+            />
+          </div>
+          <label for="usuario" class="col-form-label col-sm-2">Usuario</label>
+          <div class="col-sm-4">
+          <select class="form-control" name="id" id="select-rol" >
+            <option value="">-- Seleccionar</option>
+            <option *ngFor="let datos of usuarios" [value]=datos.id>{{datos.nombre}}</option>
+          </select>
+        </div>
+        </div>
+        <br />
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button class="btn btn-primary" role="button">Crear</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br />
+  <div class="card border-primary mb-3">
+    <div class="card-header">Cargos cambiar img</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de Productos</h5>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Fecha Ingreso</th>
+            <th>Usuario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombreProducto }}</td>
+            <td>{{ producto.cantidad }}</td>
+            <td>{{ producto.fechaIngreso }}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

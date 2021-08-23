@@ -1,0 +1,50 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">{{titulo}}</div>
+  <div class="card-body">
+    <form (ngSubmit) = "saveCargo()">
+        <div class="form-group row">
+            <label for="nombreCargo" class="col-form-label col-sm-2">Nombre</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="cargo.nombreCargo" name="nombreCargo">
+            </div>
+        </div>
+    <br>
+        <div class="form-group row">
+           
+            <div class="col-sm-6">
+                <button class="btn btn-primary" role="button">Crear</button>
+            </div>
+        </div>
+
+    </form>
+  </div>
+</div>
+<br>
+<div class="card border-primary mb-3">
+    <div class="card-header">Cargos cambiar img</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de Cargos</h5>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cargo of cargos">
+                    <td>{{cargo.id}}</td>
+                    <td>{{cargo.nombreCargo}}</td>
+                    <td>
+                        <button type="button " name="button" [routerLink]="['/editcargos',cargo.id]" class="btn btn-primary">editar</button>
+                      </td>
+                      <td>
+                        <button type="button " name="button"  (click)="delete(cargo)" class="btn btn-danger">eliminar</button>
+                      </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

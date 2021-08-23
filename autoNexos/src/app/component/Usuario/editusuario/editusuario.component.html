@@ -1,0 +1,46 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">{{ titulo }}</div>
+    <div class="card-body">
+      <form>
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+          <div class="col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="usuario.nombre"
+              name="nombre"
+            />
+          </div>
+  
+          <label for="edad" class="col-form-label col-sm-2">Edad</label>
+          <div class="col-sm-4">
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="usuario.edad"
+              name="edad"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="form-group row">
+          <label for="fechaIngresoCompania" class="col-form-label col-sm-2">Fecha Ingreso</label>
+          <div class="col-sm-4">
+            <input
+              type="date"
+              class="form-control"
+              [(ngModel)]="usuario.fechaIngresoCompania"
+              name="fechaIngresoCompania"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button class="btn btn-primary" (click)="update()"role="button">Editar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
